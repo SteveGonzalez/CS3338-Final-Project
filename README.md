@@ -41,7 +41,8 @@ Jira Link: https://cs3338-group-2-2025.atlassian.net/jira/software/projects/MTAR
 
 ## Team Members
 
-- Derek Shin  
-- Fabricio Reyes  
-- Jose Lucio  
-- Adan Trejo  
+- Alexander Diaz
+- Angel Martine 
+- Howard Ngo
+- Adan Trejo
+- Steve Gonzales
