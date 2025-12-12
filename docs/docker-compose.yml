@@ -1,0 +1,67 @@
+version: "3.9"
+
+services:
+  # Vue.js Frontend
+  frontend:
+    build:
+      context: ./frontend       
+      dockerfile: Dockerfile    
+    container_name: yourmoon-frontend
+    ports:
+      - "5173:5173"             
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - backend
+    networks:
+      - yourmoon-network
+    command: npm run dev -- --host 0.0.0.0 --port 5173
+
+  # Express.js Backend
+  backend:
+    build:
+      context: ./backend        
+      dockerfile: Dockerfile    
+    container_name: yourmoon-backend
+    ports:
+      - "3000:3000"            
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_USER=yourmoon_user
+      - DB_PASSWORD=yourmoon_pass
+      - DB_NAME=yourmoon_db
+    depends_on:
+      - db
+    networks:
+      - yourmoon-network
+    command: npm start
+
+  # MySQL Database
+  db:
+    image: mysql:8.0
+    container_name: yourmoon-mysql
+    ports:
+      - "3306:3306"           
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_DATABASE=yourmoon_db
+      - MYSQL_USER=yourmoon_user
+      - MYSQL_PASSWORD=yourmoon_pass
+    volumes:
+      - yourmoon-data:/var/lib/mysql
+    networks:
+      - yourmoon-network
+
+networks:
+  yourmoon-network:
+
+volumes:
+  yourmoon-data:

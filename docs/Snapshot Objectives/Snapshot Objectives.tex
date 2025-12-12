@@ -1,0 +1,55 @@
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{hyperref}
+\usepackage[hyphens]{url}
+
+%----------------------------------------------------------------------------------
+
+\geometry{a4paper, margin=1in}
+\Urlmuskip=0mu plus 1mu
+
+\title{JPL - MoonTrek Augmented Reality \\ Snapshot Objectives}
+\author{Group 2} 
+\date{December 2025}
+
+\setlength{\droptitle}{6cm}
+
+\pagestyle{fancy}
+\fancyhead[L]{Snapshot Objectives}
+\fancyhead[C]{}
+\fancyhead[R]{Page \thepage}
+
+%----------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{titlepage}
+\maketitle
+\thispagestyle{empty}
+\end{titlepage}
+
+%----------------------------------------------------------------------------------
+
+\section*{Start Objective}
+
+The starting objective of the MoonTrek Augmented Reality Application is to establish the user interface and backend components necessary for the web application. This includes setting up the Docker environment with Vue.js frontend, Express.js backend, MySQL database, and Python image processing service. We will develop a user-friendly Vue.js web application with navigation between Home, Upload, and Model pages. Image upload functionality will be created using Multer middleware with EXIF metadata extraction and a fallback form for manual entry. Finally, we will establish connection to NASA MoonTrek API and document available endpoints for lunar feature data.
+
+\section*{1st Checkpoint Objective}
+
+The primary objective for Snapshot 2 is to implement the core image processing algorithms and 3D model generation for context-aware image registration. We will develop the circle detection algorithm using Python and OpenCV to automatically identify the moon in uploaded images. The SIFT algorithm will be implemented for image registration, calculating transformation matrices to account for rotation, scale, and translation. Additionally, we will build the Three.js 3D model that positions Earth, Moon, and Sun based on user metadata, with LRO WAC texture mapping and directional lighting applied to create photorealistic reference images.
+
+\section*{2nd Checkpoint Objective}
+
+The primary objective for Snapshot 3 is to integrate the NASA MoonTrek API and implement the overlay system that displays lunar features on user images. We will integrate NASA MoonTrek API to fetch crater names, maria, and Apollo landing site data. Coordinate mapping will be implemented to translate WAC composite coordinates to user image positions using the transformation matrix from SIFT registration. The overlay display system will be built with interactive UI controls including layer selection and opacity adjustment to allow users to customize their viewing experience. Finally, we will optimize the processing pipeline to ensure the complete workflow completes within 60 seconds.
+
+\section*{Due Date Checkpoint}
+
+The primary objective of Snapshot 4, or the Due Date checkpoint, is to finalize the YourMoon database feature and make final adjustments to the application. We will implement the YourMoon database submission system with an image cropping interface and machine learning validation to verify submitted images are actual moon photographs. Comprehensive testing will be conducted across different browsers including Chrome, Firefox, Safari, and Edge to ensure WebGL compatibility and system stability. Final optimizations will be performed to improve SIFT registration speed and overall system performance, along with completing all documentation including the SDD, SRS, Design Specification, and README user manual.
+
+%----------------------------------------------------------------------------------
+
+\end{document}
