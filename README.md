@@ -42,7 +42,7 @@ Jira Link: https://cs3338-group-2-2025.atlassian.net/jira/software/projects/MTAR
 ## Team Members
 
 - Alexander Diaz
+- Steve Gonzalez
 - Angel Martinez
 - Howard Ngo
 - Adan Trejo
-- Steve Gonzales
